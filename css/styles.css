@@ -365,6 +365,17 @@ body {
   margin-right: 30px;
 } */
 
+.portfolio-list .card {
+  position: relative;
+}
+
+.portfolio-list .card-text {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+}
+
 .portfolio-list .portfolio-card {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -459,6 +470,15 @@ body {
 
 .job-list {
   display: flex;
+  position: relative;
+}
+
+.job-list .text-action {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  text-transform: uppercase;
 }
 
 .job-list .item + .item {
