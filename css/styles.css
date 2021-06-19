@@ -581,10 +581,11 @@ a {
   border-radius: 50%;
 
   background: var(--primary-white-color);
-  fill: var(--primary-text-color);
+  fill: var(--klients-fill);
 }
 
-.social-networks .social-link:hover {
+.social-networks .social-link:hover,
+.social-networks .social-link:focus {
   fill: var(--primary-white-color);
   background: var(--accent-color);
   cursor: pointer;
