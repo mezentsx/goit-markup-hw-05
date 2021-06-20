@@ -124,7 +124,8 @@ a {
 }*/
 
 .site-nav .link {
-  display: block;
+  position: relative;
+  /* display: block; */
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -173,6 +174,17 @@ a {
 .site-nav .active-link {
   color: var(--accent-color);
   fill: var(--accent-color);
+}
+
+.link.active-link::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  bottom: -1px;
+  left: 0;
+  background: var(--accent-color);
+  border-radius: 2px;
 }
 
 .icon-mail,
@@ -246,6 +258,40 @@ a {
   margin-right: auto;
 }
 
+/* Backdrop */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+  padding: 8px;
+
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
 /* Button */
 
 .button {
@@ -261,6 +307,23 @@ a {
   border: 0;
   padding: 10px 32px;
   min-width: 200px;
+}
+
+.button-modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+
+  fill: var(--primary-black-color);
+  background: var(--primary-white-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 
 .button-portfolio {
@@ -371,6 +434,18 @@ a {
   cursor: pointer;
 }
 
+.portfolio-list .card-link {
+  display: block;
+  color: var(--primary-text-color);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-list .card-link:hover,
+.portfolio-list .card-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 /* Альтернатива */
 
 /* .portfolio-list .item:nth-child(3n) {
@@ -388,20 +463,45 @@ a {
 
 .portfolio-list .card {
   position: relative;
+  overflow: hidden;
+}
+
+.portfolio-list .card-img {
+  display: block;
+}
+
+.portfolio-list .card-overlay {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 294px;
+
+  background: var(--accent-color);
+  padding: 24px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-list .card-link:hover .card-overlay,
+.portfolio-list .card-link:focus .card-overlay {
+  transform: translateY(-100%);
 }
 
 .portfolio-list .card-text {
-  position: absolute;
+  font-size: 18px;
+  line-height: 1.556;
+  color: var(--primary-white-color);
   margin: 0;
   padding: 0;
   bottom: 0;
 }
 
 .portfolio-list .portfolio-card {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: 20px 24px;
+  border: 1px solid #eeeeee;
 }
 
 .portfolio-title {
@@ -495,12 +595,31 @@ a {
   position: relative;
 }
 
+.job-list .item {
+  position: relative;
+}
+
 .job-list .text-action {
   position: absolute;
   margin: 0;
   padding: 0;
   bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(47, 48, 58, 0.8);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
   text-transform: uppercase;
+  color: var(--primary-white-color);
 }
 
 .job-list .item + .item {
