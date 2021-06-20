@@ -332,7 +332,6 @@ a {
   justify-content: center;
   align-items: center;
 
-  /* color: var(--primary-black-color); */
   background: var(--primary-white-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -343,7 +342,7 @@ a {
   cursor: pointer;
 }
 
-.close-black-icon {
+.cross-icon {
   fill: var(--primary-black-color);
 }
 
